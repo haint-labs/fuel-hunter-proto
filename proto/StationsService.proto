@@ -20,6 +20,6 @@ message StationResponse {
     repeated Station stations = 1;
 }
 
-service SnapshotService {
+service StationService {
     rpc GetStations(StationQuery) returns (StationResponse);
 }
