@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "fuel.hunter.models";
+
+message Station {
+    int64 id = 1;
+    string company = 2;
+    float latitude = 3;
+    float longitude = 4;
+    string address = 5;
+    string city = 6;
+    string name = 7;
+
+    message Query {
+    }
+
+    message Response {
+        repeated Station stations = 1;
+    }
+}

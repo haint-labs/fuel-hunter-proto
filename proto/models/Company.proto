@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "fuel.hunter.models";
+
+message Company {
+    string name = 1;
+    int32 order = 2;
+    bool hidden = 3;
+    Description description = 4;
+    string homepage = 5;
+    Logo logo = 6;
+    Logo large_logo = 7;
+    Logo map_logo = 8;
+    Logo map_grey_logo = 9;
+
+    message Logo {
+        string x2 = 1;
+        string x3 = 2;
+    }
+
+    message Description {
+        string en = 1;
+        string lv = 2;
+        string ru = 3;
+        string lg = 4;
+    }
+
+    message Query {
+    }
+
+    message Response {
+        repeated Company companies = 1;
+    }
+}
