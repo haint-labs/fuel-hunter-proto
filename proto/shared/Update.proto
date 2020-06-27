@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package fuel.hunter;
+
+message Update {
+    enum Status {
+        SUCCESS = 0;
+        FAILURE = 1;
+    }
+
+    message Response {
+        Status status = 1;
+        int64 count = 2;
+    }
+}

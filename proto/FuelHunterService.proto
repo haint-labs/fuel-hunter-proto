@@ -4,6 +4,8 @@ package fuel.hunter;
 
 import "google/api/annotations.proto";
 
+import "shared/Update.proto";
+
 import "models/Station.proto";
 import "models/Company.proto";
 import "models/Snapshot.proto";
@@ -18,9 +20,23 @@ service FuelHunterService {
         };
     };
 
+    rpc UpdateStations (Station.UpdateRequest) returns (Update.Response) {
+        option (google.api.http) = {
+            post: "/stations"
+            body: "stations"
+        };
+    }
+
     rpc GetCompanies (Company.Query) returns (Company.Response) {
         option (google.api.http) = {
             get: "/companies"
+        };
+    };
+
+    rpc UpdateCompanies (Company.UpdateRequest) returns (Update.Response) {
+        option (google.api.http) = {
+            post: "/companies"
+            body: "companies"
         };
     };
 

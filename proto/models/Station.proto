@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package fuel.hunter;
+
 option java_multiple_files = true;
 option java_package = "fuel.hunter.models";
 
@@ -16,6 +18,10 @@ message Station {
     }
 
     message Response {
+        repeated Station stations = 1;
+    }
+
+    message UpdateRequest {
         repeated Station stations = 1;
     }
 }
