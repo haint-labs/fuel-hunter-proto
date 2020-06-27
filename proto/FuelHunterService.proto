@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+package fuel.hunter;
+
+import "google/api/annotations.proto";
+
 import "models/Station.proto";
 import "models/Company.proto";
 import "models/Snapshot.proto";
@@ -8,7 +12,17 @@ option java_multiple_files = true;
 option java_package = "fuel.hunter";
 
 service FuelHunterService {
-    rpc GetStations (Station.Query) returns (Station.Response);
-    rpc GetCompanies (Company.Query) returns (Company.Response);
+    rpc GetStations (Station.Query) returns (Station.Response) {
+        option (google.api.http) = {
+            get: "/stations"
+        };
+    };
+
+    rpc GetCompanies (Company.Query) returns (Company.Response) {
+        option (google.api.http) = {
+            get: "/companies"
+        };
+    };
+
     rpc GetSnapshots (Snapshot.Query) returns (Snapshot.Response);
 }

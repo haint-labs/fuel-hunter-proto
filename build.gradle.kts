@@ -3,12 +3,21 @@ plugins {
     id("maven-publish")
 }
 
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
 sourceSets {
     main {
         resources {
             srcDir("${rootDir}/proto")
         }
     }
+}
+
+dependencies {
+    implementation("com.google.api.grpc:proto-google-common-protos:1.16.0")
 }
 
 publishing {
