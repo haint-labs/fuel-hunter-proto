@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package fuel.hunter;
+
+option java_multiple_files = true;
+option java_package = "fuel.hunter.models";
+
+message Price {
+    int64 id = 1;
+    string city = 2;
+    string name = 3;
+    float price = 4;
+    string address = 5;
+    bool priority = 6;
+    FuelType type = 7;
+    int64 stationId = 8;
+
+    enum FuelType {
+        E95 = 0;
+        E98 = 1;
+        DD = 2;
+        GAS = 3;
+    }
+
+    message Query {
+    }
+
+    message Response {
+        repeated Price prices = 1;
+    }
+}

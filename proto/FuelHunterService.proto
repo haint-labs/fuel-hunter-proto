@@ -8,7 +8,7 @@ import "shared/Update.proto";
 
 import "models/Station.proto";
 import "models/Company.proto";
-import "models/Snapshot.proto";
+import "models/Price.proto";
 
 option java_multiple_files = true;
 option java_package = "fuel.hunter";
@@ -40,5 +40,9 @@ service FuelHunterService {
         };
     };
 
-    rpc GetSnapshots (Snapshot.Query) returns (Snapshot.Response);
+    rpc GetPrices (Price.Query) returns (Price.Response) {
+        option (google.api.http) = {
+            get: "/prices"
+        };
+    };
 }
