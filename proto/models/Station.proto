@@ -6,7 +6,7 @@ option java_multiple_files = true;
 option java_package = "fuel.hunter.models";
 
 message Station {
-    int64 id = 1;
+    string id = 1 [json_name = "_id"];
     string company = 2;
     float latitude = 3;
     float longitude = 4;
