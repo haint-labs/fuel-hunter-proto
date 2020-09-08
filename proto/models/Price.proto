@@ -22,10 +22,30 @@ message Price {
         GAS = 3;
     }
 
+    message Location {
+        float longitude = 1;
+        float latitude = 2;
+    }
+
     message Query {
+        repeated string city = 1;
+        repeated string type = 2;
+        repeated string stationId = 3;
+        Location location = 4;
+        float distance = 5;
     }
 
     message Response {
-        repeated Price prices = 1;
+        message Item {
+            string stationId = 1;
+            repeated Price2 prices = 2;
+        }
+
+        repeated Item items = 1;
     }
+}
+
+message Price2 {
+    Price.FuelType type = 1;
+    float price = 2;
 }
