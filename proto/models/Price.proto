@@ -37,15 +37,16 @@ message Price {
 
     message Response {
         message Item {
-            string stationId = 1;
-            repeated Price2 prices = 2;
+            FuelType type = 1;
+            repeated CompanyPriceGrouped prices = 2;
+        }
+
+        message CompanyPriceGrouped {
+            float price = 1;
+            string company = 2;
+            repeated string stations = 3;
         }
 
         repeated Item items = 1;
     }
-}
-
-message Price2 {
-    Price.FuelType type = 1;
-    float price = 2;
 }
