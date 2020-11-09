@@ -1,5 +1,5 @@
 plugins {
-    java
+    id("java-library")
     id("maven-publish")
 }
 
@@ -16,16 +16,12 @@ sourceSets {
     }
 }
 
-dependencies {
-    implementation("com.google.api.grpc:proto-google-common-protos:1.16.0")
-}
-
 publishing {
     publications {
         create<MavenPublication>("github") {
             group = "fuel.hunter"
             artifactId = "proto"
-            version = "0.0.1-SNAPSHOT"
+            version = "0.0.3-SNAPSHOT"
 
             from(components["java"])
         }
