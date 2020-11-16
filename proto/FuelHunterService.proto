@@ -12,11 +12,11 @@ option java_multiple_files = true;
 option java_package = "fuel.hunter";
 
 service FuelHunterService {
-    rpc GetStations (Station.Query) returns (Station.Response)
-    rpc UpdateStations (Station.UpdateRequest) returns (Update.Response)
+    rpc GetStations (Station.Query) returns (Station.Response);
+    rpc UpdateStations (Station.UpdateRequest) returns (Update.Response);
 
-    rpc GetCompanies (Company.Query) returns (Company.Response)
-    rpc UpdateCompanies (Company.UpdateRequest) returns (Update.Response)
+    rpc GetCompanies (Company.Query) returns (Company.Response);
+    rpc UpdateCompanies (Company.UpdateRequest) returns (Update.Response);
 
-    rpc GetPrices (Price.Query) returns (Price.Response)
+    rpc GetPrices (Price.Query) returns (Price.Response);
 }
